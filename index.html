@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>HELLO</title>
+</head>
+
+<body>
+
+    <p id="res">HELLO SCRIPT</p>
+    <!--ul id="list"></!--ul>-->
+    <script>
+        fetch("http://127.0.0.1:5001/wilaya").then(data => {
+            console.log("###########")
+            
+            return data.text()
+        }).then(jsondata => {
+            document.getElementById("res").innerHTML= jsondata.toString()
+        });
+            /*
+        var url = "https://api.yalidine.app/v1/wilayas/";
+        const xhr = new XMLHttpRequest();
+        //
+
+
+        xhr.responseType = 'json';
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                console.log(xhr.response)
+                //renderResponse(xhr.response)
+            }
+        }
+        xhr.open('GET', url)
+        xhr.setRequestHeader("X-API-ID", "68208496357238217594");
+        xhr.setRequestHeader("X-API-TOKEN", "X4o2YmjKraKf6jP58ZzloRUTpcCODJXHaW0WkxmYsFQMw2eU3wvhG4fEVbr1QudG");
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xhr.send()
+
+
+
+        /*
+        xhr.open("GET", url, true);
+        if (xhr.methode === "Option") {
+            xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+            xhr.setRequestHeader("X-API-ID", "68208496357238217594");
+            xhr.setRequestHeader("X-API-TOKEN", "X4o2YmjKraKf6jP58ZzloRUTpcCODJXHaW0WkxmYsFQMw2eU3wvhG4fEVbr1QudG");
+
+        }
+
+        xhr.onload = function (e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    // vous gérer la réponsne ici
+                    //
+                    //
+                    //
+                    console.log(xhr.responseText);
+
+                } else {
+                    console.error(xhr.statusText);
+                }
+            }
+        };
+
+        xhr.onerror = function (e) {
+            console.error(xhr.statusText);
+        };
+        xhr.send(null);
+        /*
+        fetch("http://127.0.0.1:4000/").then(data => {
+            return data.json()
+        }).then(jsondata => {
+            const v=Array.from(jsondata).reduce((pv, c) => {
+               return pv + `<li>author=${c.author} title=${c.title} time=${new Date(c.timestamp) }</li>`
+            }, "")
+            console.log(v)
+            document.getElementById("list").innerHTML=v
+
+        })*/
+    </script>
+</body>
+</html>
